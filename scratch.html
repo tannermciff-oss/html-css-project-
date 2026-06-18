@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tennis</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="top">
+
+   
+    <div class="header-div">
+        <h1>Tennis is more than a game</h1>
+       
+        <a href="resume.html">← Back to Professional Resume</a>
+        <br><br>
+        
+        <a href="#video-section">Jump down to the Match Highlights</a>
+    </div>
+
+    <!-- Div 2: Informational Content -->
+    <div class="info-div">
+        <h2>The Grand Slam Tournaments</h2>
+        <p>There are four major tournaments in professional tennis, each played on a distinct surface during different times of the year:</p>
+        
+     
+        <ol>
+            <li>Australian Open
+                <ul>
+                    <li>Surface: Hard Court (Plexicushion)</li>
+                    <li>Location: Melbourne, Australia</li>
+                    <li>Time of Year: January</li>
+                </ul>
+            </li>
+            <li>French Open (Roland Garros)
+                <ul>
+                    <li>Surface: Red Clay</li>
+                    <li>Location: Paris, France</li>
+                    <li>Time of Year: May</li>
+                </ul>
+            </li>
+            <li>Wimbledon
+                <ul>
+                    <li>Surface: Grass</li>
+                    <li>Location: London, England</li>
+                    <li>Time of Year: July</li>
+                </ul>
+            </li>
+            <li>US Open
+                <ul>
+                    <li>Surface: Hard Court (DecoTurf)</li>
+                    <li>Location: New York City, USA</li>
+                    <li>Time of Year: September</li>
+                </ul>
+            </li>
+        </ol>
+
+        
+        <img src="grass court.jpeg" alt="Grass courts at Wimbledon" width="500">
+    </div>
+
+    
+    <div class="media-div">
+       
+        <h2 id="video-section">Roger Federer Highlights</h2>
+        
+        
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/fK2i-Jo3CNA?si=7KSJznNCFB-h1Gqf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        
+        <h2>Tennis Player Data Visualization</h2>
+        <p>Interact with the chart below to see player statistics.</p>
+        
+        
+       <div class='tableauPlaceholder' id='viz1781729382485' style='position: relative'>
+        <noscript><a href='#'><img alt='TennisGrandslamWinners ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Te&#47;TennisGrandslamWinnersMenWomen&#47;TennisGrandslamWinners&#47;1_rss.png' style='border: none' /></a>
+        </noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='views&#47;TennisGrandslamWinnersMenWomen&#47;TennisGrandslamWinners?:language=en-US&amp;:embed=true&amp;:sid=&amp;:redirect=auth' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Te&#47;TennisGrandslamWinnersMenWomen&#47;TennisGrandslamWinners&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>         
+        <script type='text/javascript'> var divElement = document.getElementById('viz1781729382485');var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1100px';vizElement.style.height='927px';                    var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    </div>
+
+    <div class="sim-container" style="background: #ffffff; padding: 25px; border-radius: 8px; box-shadow: 0px 4px 6px rgba(0,0,0,0.05); text-align: center; margin-bottom: 25px; border-top: 6px solid #4b0082;">
+    
+    <h2>Point Play Simulator</h2>
+    <p id="game-message" style="font-weight: bold; color: #34495e; min-height: 25px;">Click 'Serve' to start the point!</p>
+    
+    <button onclick="serveBall()" style="background: #0b5e28; color: white; padding: 10px 25px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; margin-bottom: 20px;">Serve</button>
+
+    <div id="tennis-court" onclick="hitBall(event)" style="width: 100%; max-width: 350px; height: 500px; background-color: #5b8c5a; margin: 0 auto; position: relative; border: 6px solid #ffffff; cursor: crosshair; overflow: hidden; box-shadow: inset 0px 0px 10px rgba(0,0,0,0.2);">
+        
+        <div style="position: absolute; top: 50%; width: 100%; height: 4px; background-color: #ffffff; transform: translateY(-50%);"></div> <div style="position: absolute; top: 25%; width: 100%; height: 3px; background-color: #ffffff;"></div> <div style="position: absolute; top: 75%; width: 100%; height: 3px; background-color: #ffffff;"></div> <div style="position: absolute; left: 50%; top: 25%; width: 3px; height: 50%; background-color: #ffffff; transform: translateX(-50%);"></div> <div id="tennis-ball" style="width: 18px; height: 18px; background-color: #ccff00; border-radius: 50%; position: absolute; display: none; box-shadow: 2px 2px 4px rgba(0,0,0,0.4);"></div>
+    </div>
+</div>
+
+<script>
+    
+    let isBallInPlay = false;
+    const ball = document.getElementById("tennis-ball");
+    const message = document.getElementById("game-message");
+    const court = document.getElementById("tennis-court");
+
+    function serveBall() {
+        if (isBallInPlay) return; 
+
+    
+        ball.style.transition = "none"; 
+        ball.style.display = "block";
+        ball.style.top = "5%";
+        ball.style.left = "50%";
+        ball.style.transform = "translate(-50%, -50%)";
+
+        message.innerText = "Incoming! Click on the opponent's side to hit it back!";
+        message.style.color = "#d35400"; // Orange alert text
+        
+        isBallInPlay = true;
+
+        
+        setTimeout(() => {
+           
+            ball.style.transition = "all 1.2s ease-out";
+            
+           
+            ball.style.top = "90%";
+            
+           
+            const randomX = Math.floor(Math.random() * 80) + 10; 
+            ball.style.left = randomX + "%";
+        }, 100);
+    }
+
+    function hitBall(event) {
+       
+        if (!isBallInPlay) return; 
+
+        
+        const rect = court.getBoundingClientRect();
+        const clickX = event.clientX - rect.left;
+        const clickY = event.clientY - rect.top;
+
+       
+        const xPercent = (clickX / rect.width) * 100;
+        const yPercent = (clickY / rect.height) * 100;
+
+        
+        ball.style.transition = "all 1s ease-out"; 
+        ball.style.left = xPercent + "%";
+        ball.style.top = yPercent + "%";
+        
+        isBallInPlay = false; 
+
+       
+        if (yPercent > 50) {
+            
+            message.innerText = "Error: You hit it into your own side of the net!";
+            message.style.color = "#c0392b"; // Red
+        } else if (xPercent < 2 || xPercent > 98 || yPercent < 2) {
+            
+            message.innerText = "Out! You hit it long or wide.";
+            message.style.color = "#c0392b"; // Red
+        } else {
+            
+            message.innerText = "Great shot! Winner!";
+            message.style.color = "#27ae60"; 
+        }
+    }
+</script>
+<div class="back-to-top">
+        <a href="#top">↑ Back to Top</a>
+    </div>
+</body>
+</html>
